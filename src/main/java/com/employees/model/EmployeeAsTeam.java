@@ -1,6 +1,9 @@
 package com.employees.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 /**
  * @author HowaydaGamal
@@ -8,7 +11,13 @@ import lombok.Data;
  */
 
 @Data
+@AllArgsConstructor
+@Component
 public class EmployeeAsTeam {
+
+    public EmployeeAsTeam() {
+        this.numberOfDaysAsTeam = 0l;
+    }
 
     private Employee firstEmployee;
     private Employee secondEmployee;
