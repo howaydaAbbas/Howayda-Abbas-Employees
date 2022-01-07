@@ -112,8 +112,9 @@ public class EmployeeService {
     private void printResult(EmployeeAsTeam employeeAsTeam) {
 
         System.out.println();
-        System.out.println(employeeAsTeam.getFirstEmployee().getId() + " " + employeeAsTeam.getSecondEmployee().getId() + " " +
-                employeeAsTeam.getFirstEmployee().getProjectId() + " " + employeeAsTeam.getNumberOfDaysAsTeam());
+        System.out.println("First Employee ID, Second Employee ID, Project ID, Number of days as team");
+        System.out.println(employeeAsTeam.getFirstEmployee().getId() + "\t\t\t\t\t" + employeeAsTeam.getSecondEmployee().getId() + "\t\t\t\t\t" +
+                employeeAsTeam.getFirstEmployee().getProjectId() + "\t\t\t\t\t" + employeeAsTeam.getNumberOfDaysAsTeam());
         System.out.println();
     }
 
