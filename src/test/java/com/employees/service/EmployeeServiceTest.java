@@ -4,6 +4,7 @@ import com.employees.EmployeesApplication;
 import com.employees.configuration.EmployeeConfiguration;
 import com.employees.exception.DateParsingException;
 import com.employees.model.Employee;
+import com.employees.util.DateParserUtil;
 import com.employees.utils.GenerateStubs;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -31,6 +32,9 @@ public class EmployeeServiceTest {
 
     @Mock
     private EmployeeConfiguration employeeConfiguration;
+
+    @Mock
+    private DateParserUtil dateParserUtil;
 
     @Test
     public void calculateNumberOfDaysAsTeamSuccessT() {
