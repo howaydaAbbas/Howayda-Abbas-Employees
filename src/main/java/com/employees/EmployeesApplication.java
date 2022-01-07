@@ -1,11 +1,13 @@
 package com.employees;
 
+import com.employees.exception.DateParsingException;
 import com.employees.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 
 /**
  * @author HowaydaGamal
@@ -23,7 +25,7 @@ public class EmployeesApplication {
     }
 
     @PostConstruct
-    public void runAfterObjectCreated() {
+    public void runAfterObjectCreated() throws IOException, DateParsingException {
         employeeService.parseEmployeesFile();
     }
 }

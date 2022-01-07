@@ -10,13 +10,9 @@ import java.time.LocalDate;
  */
 public class GenerateStubs {
 
-    public static String generateEmployeeAsString(){
-
-        return "1,1,2000-01-01,2010-01-01";
-    }
+    public static final String EMPLOYEE_AS_ROW = "1,1,2000-01-01,2010-01-01";
 
     public static Employee generateEmployee(){
-       Employee employee = new Employee("1", "1", LocalDate.parse("2000-01-01"), LocalDate.parse("2010-01-01"));
-       return employee;
+        return new Employee("1", "1", LocalDate.parse("2000-01-01"), LocalDate.parse("2010-01-01"));
     }
 }

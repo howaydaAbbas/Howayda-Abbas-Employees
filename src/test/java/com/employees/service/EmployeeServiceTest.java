@@ -2,6 +2,7 @@ package com.employees.service;
 
 import com.employees.EmployeesApplication;
 import com.employees.configuration.EmployeeConfiguration;
+import com.employees.exception.DateParsingException;
 import com.employees.model.Employee;
 import com.employees.utils.GenerateStubs;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -42,13 +42,13 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void parseEmployeeDataSuccessT() {
+    public void parseEmployeeDataSuccessT() throws DateParsingException {
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String empArray[] = GenerateStubs.generateEmployeeAsString().split(",");
+        String[] empArray = GenerateStubs.EMPLOYEE_AS_ROW.split(",");
         Employee employee = new Employee(empArray[0], empArray[1], LocalDate.parse(empArray[2], dateTimeFormatter)
                 , empArray[3].equals(employeeConfiguration.getCurrentDateTo()) ? LocalDate.now() : LocalDate.parse(empArray[3], dateTimeFormatter));
-        Assertions.assertEquals(employeeService.parseEmployeeData(GenerateStubs.generateEmployeeAsString()).getId(), employee.getId());
-        Assertions.assertEquals(employeeService.parseEmployeeData(GenerateStubs.generateEmployeeAsString()).getProjectId(), employee.getProjectId());
+        Assertions.assertEquals(employeeService.parseEmployeeData(GenerateStubs.EMPLOYEE_AS_ROW).getId(), employee.getId());
+        Assertions.assertEquals(employeeService.parseEmployeeData(GenerateStubs.EMPLOYEE_AS_ROW).getProjectId(), employee.getProjectId());
     }
 }

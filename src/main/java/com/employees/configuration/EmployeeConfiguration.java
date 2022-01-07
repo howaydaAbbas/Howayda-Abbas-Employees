@@ -18,4 +18,7 @@ public class EmployeeConfiguration {
 
     @Value("${employee.header.date.to}")
     private String dateToHeader;
+
+    @Value("${employee.date.format}")
+    private String[] dateFormats;
 }
